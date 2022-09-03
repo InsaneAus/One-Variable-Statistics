@@ -42,10 +42,8 @@ int main() {
 
     string decision = "y";
 
-    time_t start_loop_stopwatch, end_loop_stopwatch;
-
     cout << "\nOne-Variable Statistics\n";
-    cout << "Displays frequency table, sum, mean, median, mode,\n";
+    cout << "Displays unsorted & sorted vector, frequency table, sum, mean, median, mode,\n";
     cout << "population standard deviation, variance, range, maximum,\n";
     cout << "and minimum of array. It also displays execution time as well.\n\n";
 
@@ -76,7 +74,7 @@ int main() {
                 }
                 x.push_back(number);
             }
-            time(&start_loop_stopwatch);
+            
             auto start_calculate = high_resolution_clock::now();
 
             cout << "\nUnsorted Vector: ";
@@ -233,8 +231,8 @@ int main() {
     auto end_program_stopwatch = high_resolution_clock::now();
     auto total_time = duration_cast<seconds>(end_program_stopwatch - begin_program_stopwatch);
     cout << "\n";
-    for (int i = 1; i <= time_store.size(); i++) {
-        cout << "Time to calculate Stats Loop #" << i << ": " << time_store.at(i-1).count() << " microseconds\n";
+    for (int i = 0; i < time_store.size(); i++) {
+        cout << "Time to calculate Stats Loop #" << i + 1 << ": " << time_store.at(i).count() << " microseconds\n";
     }
 
     cout << "\nTotal Execution Time: " << total_time.count() << " seconds\n";

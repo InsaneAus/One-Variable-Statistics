@@ -21,7 +21,7 @@ class data {
     public:
         void ProgramIntroText() {
             cout << "\nOne-Variable Statistics\n";
-            cout << "Displays frequency table, sum, mean, median, mode,\n";
+            cout << "Displays unsorted & sorted vector, frequency table, sum, mean, median, mode,\n";
             cout << "population standard deviation, variance, range, maximum,\n";
             cout << "and minimum of array. It also displays execution time as well.\n\n";
         }
