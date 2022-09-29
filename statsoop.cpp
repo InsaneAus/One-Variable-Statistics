@@ -53,7 +53,7 @@ class data {
         
         
     public:
-        void InputNoofElements() {
+        void InputNoofElements() { 
             cout << "Note: If the decimal value is inputted, it will be rounded to the nearest integer.\n";
             cout << "No. of elements: ";
             while (!(cin >> ele)) { // Input for no. of elements that will be in the vector
@@ -117,7 +117,7 @@ class data {
                 cout << "\n";
             }
         }
-        void DisplaySumandMean() {
+        void DisplaySumandMean() { // Calculate Sum and Mean of Vector
             for (int i = 0; i < x.size(); i++) {
                 sum += x.at(i);
             }
@@ -130,7 +130,7 @@ class data {
 
             cout << "Mean: " << mean << "\n";
         }
-        void DisplayMedian() {
+        void DisplayMedian() { // Calculate Median
             if (x.size() % 2 == 1) {
                 median = x.at(x.size()/2);
             } else if (x.size() % 2 == 0) {
@@ -139,7 +139,7 @@ class data {
 
             cout << "Median: " << median;
         }
-        void DisplayMode() {
+        void DisplayMode() { // Calculate Mode
             int highest_freq = freq_table.at(0);
 
             for (int i = 0; i < freq_table.size(); i++) {
@@ -158,7 +158,7 @@ class data {
 
 
         }
-        void DisplayPopulationStandardDeviation() {
+        void DisplayPopulationStandardDeviation() { // Calculate Population Standard Deviation
             cout << "\n";
 
             for (int i = 0; i < x.size(); i++) {
@@ -168,11 +168,11 @@ class data {
             standard_deviation = sqrt(xminusmean / (double) x.size());
             cout << "Population Standard Deviation: " << standard_deviation << "\n";
         }
-        void DisplayVariance() {
+        void DisplayVariance() { // Calculate Variance
             variance = standard_deviation * standard_deviation;
             cout << "Variance: " << variance << "\n";
         }
-        void DisplayRange() {
+        void DisplayRange() { // Calculate Range
             range = x.at(x.size()-1) - x.at(0); // Subtracts biggest number by smallest number
             cout << "Range: " << range << "\n";
         }
