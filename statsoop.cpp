@@ -213,7 +213,7 @@ class execution_time: public data { // execution_time inherits the data class (L
             cout << "Time to calculate Stats Loop #" << i + 1 << ": " << time_store.at(i).count() << " microseconds\n";
             }
         }
-        execution_time() { // execution_time's constructor (Lines 217-263)
+        execution_time() { // execution_time's constructor (Lines 216-263)
             ProgramIntroText();
             while (continue_or_quit == false) {
                 InputNoofElements();
