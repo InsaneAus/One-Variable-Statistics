@@ -63,7 +63,7 @@ int main() {
         }
 
         ele_final = round(ele);
-        // If nothing goes wrong in the previous user input, t
+        
         if (ele_final > 0) {     
 
             for (int i = 0; i < ele_final; i++) {
@@ -110,7 +110,7 @@ int main() {
                     freq = 1;
                 }
             }
-            for (int i = 0; i < freq_table.size(); i++) { // Displays Frequency Table (Lines 113 to 115)
+            for (int i = 0; i < freq_table.size(); i++) { // Displays Frequency Table (Lines 113 to 116)
                 cout << "x: " << x_mode.at(i) << " | freq: " << freq_table.at(i);
                 cout << "\n";
             }
@@ -139,7 +139,7 @@ int main() {
 
             cout << "Median: " << median;
 
-            // Calculate Mode (Lines 144-152)
+            // Calculate Mode (Lines 144-158)
 
             int highest_freq = freq_table.at(0);
 
@@ -189,7 +189,7 @@ int main() {
             auto duration_calculate = duration_cast<microseconds>(stop_calculate - start_calculate);
 
             time_store.push_back(duration_calculate); // Stores the variable inside the 'time_store' vector
-            // Displays execuion time (Line 193)
+            // Displays execution time (Line 193)
             cout << "\nExecution Time to calculate: " << duration_calculate.count() << " microseconds\n";
 
     } else if (ele_final == 0) {
@@ -201,7 +201,7 @@ int main() {
         cout << "\nNegative numbers don't work." << "\n";
 
     }
-        // User Input for the user if he or she wants to continue running the code or stop running it.
+        // User input for the user if he or she wants to continue running the code or wants to stop running it.
         cout << "Do it again? Type 'Y' or 'y' to continue. Otherwise, the program ends.\nInput: ";
         cin >> decision;
 
