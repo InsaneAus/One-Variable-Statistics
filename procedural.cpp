@@ -18,7 +18,7 @@ using std::chrono::duration_cast;
 
 // Main method (Lines 20-243)
 int main() {
-    vector <double> x; // Declare variable 'x' as vector data type
+    vector <double> x; // Variable Declaration (Lines 21-43)
     double ele;
     int ele_final;
     double number = 0;
