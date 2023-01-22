@@ -49,7 +49,7 @@ int main() {
     
     auto begin_program_stopwatch = high_resolution_clock::now();
     
-    // Registers user input (lines 54 to 63)
+    // User input for inputting numbers (lines 54 to 79)
     
     while (continue_or_quit == false) { 
         cout << "Note: If the decimal value is inputted, it will be rounded to the nearest integer.\n";
