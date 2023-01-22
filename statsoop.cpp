@@ -1,32 +1,31 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-#include <cmath>
-#include <cstdlib>
-#include <string>
+#include <iostream> // library header that is used for cin (input) and cout (output)
+#include <vector> // libary header that defines the vector container class (used for vector (dynamic array))
+#include <algorithm> // library header to be used on ranges of elements
+#include <cmath> // libary header that is used for mathematical operations
+#include <cstdlib> // library header for general purpose functions like random number generation
+#include <string> // library header to introduce string types
 #include <chrono> // used to measure time and subtract two timepoints to get the interval of time passed in between
-
-using std::cout; // used to output the statement/s
-using std::cin; // used for input of values
-using std::sort; // 
+// Reduce the need to write "std::" or "std::chrono" to access identifiers from C++ (Lines 9 to 17)
+using std::cout; 
+using std::cin; 
+using std::sort;  
 using std::string;
 using std::vector;
 using std::chrono::high_resolution_clock;
-using std::chrono::microseconds;
 using std::chrono::seconds;
+using std::chrono::microseconds;
 using std::chrono::duration_cast;
-using std::to_string;
-
+// Data class (Lines 19-206)
 class data {
     public:
-        void ProgramIntroText() {
+        void ProgramIntroText() { 
             cout << "\nOne-Variable Statistics\n";
             cout << "Displays unsorted & sorted vector, frequency table, sum, mean, median, mode,\n";
             cout << "population standard deviation, variance, range, maximum,\n";
             cout << "and minimum of array. It also displays execution time as well.\n\n";
         }
 
-    public:
+    public: // Variable Declaration (Lines 29-51)
         vector <double> x;
         double ele;
         int ele_final;
@@ -53,7 +52,7 @@ class data {
         
         
     public:
-        void InputNoofElements() { 
+        void InputNoofElements() { // User input for inputting numbers (Lines 55-81)
             cout << "Note: If the decimal value is inputted, it will be rounded to the nearest integer.\n";
             cout << "No. of elements: ";
             while (!(cin >> ele)) { // Input for no. of elements that will be in the vector
@@ -80,24 +79,24 @@ class data {
                 x.push_back(number);
             }
         }
-        void SortandUnsortedArray() {
+        void SortandUnsortedArray() { 
             cout << "\nUnsorted Vector: ";
 
-            for (int i = 0; i < x.size(); i++) {
+            for (int i = 0; i < x.size(); i++) { // Displays unsorted vector (Lines 85-87)
                 cout << x.at(i) << " ";
             }
 
-            sort(x.begin(), x.end());
+            sort(x.begin(), x.end()); // Sorts the vector from smallest to largest
 
             cout << "\nSorted Vector: ";
 
-            for (int i = 0; i < x.size(); i++) {
+            for (int i = 0; i < x.size(); i++) { // Displays sorted vector (Lines 93-95)
                 cout << x.at(i) << " ";
             }
         }
         void DisplayFrequencyTable() {
             cout << "\n\nFrequency Table:\n";
-            for (int i = 0; i < x.size(); i++) {
+            for (int i = 0; i < x.size(); i++) { // Creating the Frequency Table (Lines 99-113)
                 if (i + 1 < x.size()) {
                     if (x.at(i+1) == x.at(i)) {
                         freq += 1;
@@ -112,12 +111,12 @@ class data {
                     freq = 1;
                 }
             }
-            for (int i = 0; i < freq_table.size(); i++) {
+            for (int i = 0; i < freq_table.size(); i++) { // Displays the Frequency Table (Lines 114-117)
                 cout << "x: " << x_mode.at(i) << " | freq: " << freq_table.at(i);
                 cout << "\n";
             }
         }
-        void DisplaySumandMean() { // Calculate Sum and Mean of Vector
+        void DisplaySumandMean() { // Calculate Sum and Mean of Vector (Lines 120-130)
             for (int i = 0; i < x.size(); i++) {
                 sum += x.at(i);
             }
@@ -130,7 +129,7 @@ class data {
 
             cout << "Mean: " << mean << "\n";
         }
-        void DisplayMedian() { // Calculate Median
+        void DisplayMedian() { // Calculate Median (Lines 133-139)
             if (x.size() % 2 == 1) {
                 median = x.at(x.size()/2);
             } else if (x.size() % 2 == 0) {
@@ -139,7 +138,7 @@ class data {
 
             cout << "Median: " << median;
         }
-        void DisplayMode() { // Calculate Mode
+        void DisplayMode() { // Calculate Mode (Lines 142-156)
             int highest_freq = freq_table.at(0);
 
             for (int i = 0; i < freq_table.size(); i++) {
@@ -158,7 +157,7 @@ class data {
 
 
         }
-        void DisplayPopulationStandardDeviation() { // Calculate Population Standard Deviation
+        void DisplayPopulationStandardDeviation() { // Calculate Population Standard Deviation (Lines 161-168)
             cout << "\n";
 
             for (int i = 0; i < x.size(); i++) {
@@ -168,20 +167,20 @@ class data {
             standard_deviation = sqrt(xminusmean / (double) x.size());
             cout << "Population Standard Deviation: " << standard_deviation << "\n";
         }
-        void DisplayVariance() { // Calculate Variance
+        void DisplayVariance() { // Calculate Variance (Lines 171-172)
             variance = standard_deviation * standard_deviation;
             cout << "Variance: " << variance << "\n";
         }
-        void DisplayRange() { // Calculate Range
+        void DisplayRange() { // Calculate Range (Lines 175-176)
             range = x.at(x.size()-1) - x.at(0); // Subtracts biggest number by smallest number
             cout << "Range: " << range << "\n";
         }
         void DisplayMaximum() {
-            // Get Maximum
+            // Get Maximum (Line 180)
             cout << "Maximum: " << x.at(x.size() - 1) << "\n";
         }
         void DisplayMinimum() {
-            // Get Minimum
+            // Get Minimum (Line 184)
             cout << "Minimum: " << x.at(0) << "\n";
         }
         void DefaultValue() {
@@ -205,16 +204,16 @@ class data {
 
         
 };
-
-class execution_time: public data {
+// execution_time class (Lines 208-265)
+class execution_time: public data { // execution_time inherits the data class (Line 208)
     public:
-        void DisplayExecutionTimePerLoop() {
+        void DisplayExecutionTimePerLoop() { // Displays execution time (Lines 211-214)
             cout << "\n";
             for (int i = 0; i < time_store.size(); i++) {
             cout << "Time to calculate Stats Loop #" << i + 1 << ": " << time_store.at(i).count() << " microseconds\n";
             }
         }
-        execution_time() {
+        execution_time() { // execution_time's constructor (Lines 217-263)
             ProgramIntroText();
             while (continue_or_quit == false) {
                 InputNoofElements();
@@ -231,12 +230,12 @@ class execution_time: public data {
                     DisplayRange();
                     DisplayMaximum();
                     DisplayMinimum();
-                    auto stop_calculate = high_resolution_clock::now();
-
+                    auto stop_calculate = high_resolution_clock::now(); // Stops the stopwatch (Line 233)
+                    // Calculates the execution time (Line 235)
                     auto duration_calculate = duration_cast<microseconds>(stop_calculate - start_calculate);
-
+                    // Stores the variable inside the 'time_store' vector (Line 237)
                     time_store.push_back(duration_calculate);
-
+                    // Displays execution time (Line 239)
                     cout << "\nExecution Time to calculate: " << duration_calculate.count() << " microseconds\n";
 
                 } else if (ele_final == 0) {
@@ -247,7 +246,7 @@ class execution_time: public data {
 
                     cout << "\nNegative numbers don't work." << "\n";
 
-                }
+                } // User input for the user if he or she wants to continue or stop running the code
                 cout << "Do it again? Type 'Y' or 'y' to continue. Otherwise, the program ends.\nInput: ";
                 cin >> decision;
                 if (decision == "n") {
@@ -266,7 +265,7 @@ class execution_time: public data {
 };
 
 
-int main() {
+int main() { // Main method (Lines 268-276)
     auto begin_program_stopwatch = high_resolution_clock::now();
     execution_time main = execution_time();
     auto end_program_stopwatch = high_resolution_clock::now();
